@@ -1,4 +1,4 @@
-#A wesbite for our student chaper
+# A wesbite for our student chaper
 
 Our SPE student chapter is one of the best student chapters in the middle east, which is why I and the president of our chapter worked on this website. He has since graduated from university and the complete management, upkeep, and development of the website was handled by me on the original repository. [link to the original repo](https://spebuog.vercel.app/).
 
