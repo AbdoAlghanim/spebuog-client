@@ -6,6 +6,7 @@ import Linkedin from "../assets/social/linkedin.svg";
 import Instagram from "../assets/social/instagram.svg";
 import Logo from "../assets/shared/spe-logo-2020.png";
 import { useUser } from "../contexts/UserContext";
+import { Link} from "react-router-dom";
 
 // Defining the Footer component
 const Footer = () => {
@@ -19,11 +20,11 @@ const Footer = () => {
         {/* Displaying the heading for fast links */}
         <h5>{language.FOOTER.FASTLINKS}</h5>
         {/* Displaying links for different sections of the website */}
-        <a>{language.FOOTER.HOME}</a>
-        <a>{language.FOOTER.COURSES}</a>
-        <a>{language.FOOTER.INSTRUCTORS}</a>
-        <a>{language.FOOTER.MEMBERSHIP}</a>
-        <a>{language.FOOTER.ABOUT}</a>
+        <Link to={"/"}>{language.FOOTER.HOME}</Link>
+        <Link to={"/courses"}>{language.FOOTER.COURSES}</Link>
+        <Link to={"/instructors"}>{language.FOOTER.INSTRUCTORS}</Link>
+        <Link to={"/membership"}>{language.FOOTER.MEMBERSHIP}</Link>
+        <Link to={"/about"}>{language.FOOTER.ABOUT}</Link>
       </div>
 
       {/* Section about SPE */}

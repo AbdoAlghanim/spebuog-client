@@ -107,7 +107,7 @@ const About = () => {
         </Flex>
 
         {/* Rendering the "Team" component */}
-        <Team />
+        {/* <Team /> */}
 
         {/* Rendering the "Achievement" component */}
         <Achievement />
