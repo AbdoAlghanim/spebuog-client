@@ -20,15 +20,15 @@ const AuthProvider = (props) => {
       }
 
     const client = sanityClient({
-        projectId: 'q6fpo8mv',
+        projectId: 'ipkqajpo', // q6fpo8mv
         dataset: 'production',
         apiVersion: '2021-10-21',
         useCdn: true,
     })
 
     const builder = imageUrlBuilder({
-        baseUrl: 'https://q6fpo8mv.api.sanity.io',
-        projectId: 'q6fpo8mv',
+        baseUrl: 'https://ipkqajpo.api.sanity.io', // https://q6fpo8mv.api.sanity.io
+        projectId: 'ipkqajpo', // q6fpo8mv
         dataset: 'production',
         useCdn: true,
     })
