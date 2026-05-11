@@ -33,23 +33,24 @@ const Courses = () => {
       py={{ base: "1em", lg: "3em" }}
       flexDir="column"
       gap="0.5em"
-      w="100vw"
+      w="90%"
+      maxW="100%"
     >
       {/* ResponsiveWidth component to manage the width of the page content */}
-      <ResponsiveWidth>
+      <ResponsiveWidth w={{ base: "90%", lg: "75%" }} mx="auto" px={{ base: "0.5em", lg: "0" }}>
         {/* Heading for the Courses page */}
-        <Heading fontSize="42px" letterSpacing={-1} fontWeight="semibold">
+        <Heading fontSize={{ base: "32px", lg: "42px" }} letterSpacing={-1} fontWeight="semibold">
           {language.COURSES.HEADLINE}
         </Heading>
 
         {/* Subheading text for the Courses page */}
-        <Text fontSize="16px" mt="0.25em" color="#5f6368" maxW="600px" minW="50%">
+        <Text fontSize="16px" mt="0.25em" color="#5f6368" maxW="600px">
           {language.COURSES.SUBHEADLINE}
         </Text>
       </ResponsiveWidth>
 
       {/* Flex container to handle the search and filter section */}
-      <Flex h={{ base: "134px", lg: query.tag?.value ? "134px" : "200px" }}>
+      <Flex minH={{ base: "auto", lg: query.tag?.value ? "134px" : "200px" }} w="100%">
         <Flex
           bg="white"
           flexDir="column"
@@ -57,10 +58,10 @@ const Courses = () => {
           top="-1px"
           zIndex={1}
           pb="1em"
-          w="99vw"
+          w="100%"
         >
           {/* ResponsiveWidth component for managing the width of this section */}
-          <ResponsiveWidth>
+          <ResponsiveWidth w={{ base: "90%", lg: "75%" }} mx="auto" px={{ base: "0.5em", lg: "0" }}>
             {/* Rendering the search input and filter selection */}
             <Search query={query} setQuery={setQuery} language={language} />
 
@@ -91,15 +92,7 @@ const Courses = () => {
       </Flex>
 
       {/* Another ResponsiveWidth component to manage the width of the page content */}
-      <ResponsiveWidth
-        w={{
-          base: "100vw",
-          md: "768px",
-          lg: "1114px",
-          xl: "1440px",
-          "2xl": "1400px",
-        }}
-      >
+      <ResponsiveWidth w={{ base: "90%", lg: "75%" }} mx="auto" px={{ base: "0.5em", lg: "0" }}>
         {/* Conditional rendering based on whether a tag or search term is selected */}
         {query.tag?.value || query.search ? (
           // If a tag or search term is selected, display the FilterResults component

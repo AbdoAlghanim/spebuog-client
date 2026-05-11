@@ -16,8 +16,7 @@ const BasicLayout = ({ children, ...props }) => {
   return (
     <Grid
       minH="100vh"
-      maxW="100vw"
-      style={{ overflowX: "clip" }}
+      maxW="100%"
       gridTemplateRows="auto 1fr auto"
       // Setting the text direction based on the language
       dir={language.lang === "ar" ? "rtl" : "ltr"}

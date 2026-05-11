@@ -31,17 +31,12 @@ const Speakers = () => {
   return (
     <Flex
       flexDir="column"
-      w={{
-        base: "90%",
-        md: "768px",
-        lg: "1114px",
-        xl: "1440px",
-        "2xl": "1500px",
-      }}
+      w={{ base: "90%", lg: "75%" }}
+      mx="auto"
+      px={{ base: "0.5em", lg: "0" }}
       mt={{ base: "50px", xl: "100px" }}
       mb={{ base: "25px", lg: "50px" }}
       pb="2.5em"
-      mx="auto"
     >
       {/* Rendering the search bar component */}
       <SearchBar

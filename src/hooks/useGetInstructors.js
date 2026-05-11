@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import useSWR from 'swr'
+import instructorsData from '../data/instructors.json'
 
 export default ({
     searchQuery,
@@ -7,20 +7,35 @@ export default ({
     sortOrder
 }) => {
     const [speakers, setSpeakers] = useState(null)
-    
-    const { data, isLoading } = useSWR(`
-        *[_type == 'instructor'] | score(
-            name match '*${searchQuery}*' ||
-            position match '*${filterPosition}*' ||
-            position match '*${searchQuery}*' ||
-            organization match '*${filterPosition}*' ||
-            organization match '*${searchQuery}*'
-        )[_score > 0] | order(latestEvent ${sortOrder || 'desc'})
-    `)
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        setSpeakers(data?.length ? data : [])
-    }, [data])
+        setIsLoading(true)
+        const timer = setTimeout(() => {
+            let filtered = [...instructorsData]
+
+            if (searchQuery) {
+                filtered = filtered.filter(instructor => 
+                    instructor.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    instructor.position.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    instructor.organization.toLowerCase().includes(searchQuery.toLowerCase())
+                )
+            }
+
+            if (filterPosition) {
+                filtered = filtered.filter(instructor => 
+                    instructor.position.toLowerCase().includes(filterPosition.toLowerCase()) ||
+                    instructor.organization.toLowerCase().includes(filterPosition.toLowerCase())
+                )
+            }
+
+            // sortOrder logic can be added here if needed, but for hardcoded it's simple
+            
+            setSpeakers(filtered)
+            setIsLoading(false)
+        }, 500)
+        return () => clearTimeout(timer)
+    }, [searchQuery, filterPosition, sortOrder])
 
     return { speakers, isLoading }
 }

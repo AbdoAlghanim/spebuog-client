@@ -1,49 +1,36 @@
 import { useState , useEffect } from 'react'
-import useSWR from 'swr'
+import coursesData from '../data/courses.json'
 
 export default ({ query}) => {
     const [results, setResults] = useState([])
-
-    let queryTerm = query?.search ? (
-         query.search.replaceAll('.', ' ') 
-    ) : "*"
-    let queryTag = (query?.tag?.value) ? (
-         query.tag.value.replaceAll('.', ' ')
-    ) :  '*'
-
-    const { data, isLoading } = useSWR(`
-        *[_type == 'event'] | score(
-            (title match '*${queryTerm}*' ||
-            description match '${queryTerm}') &&
-            tags match '${queryTag}' 
-        )[_score > 0]{
-            ...,
-            instructors[]->,
-            parent->,
-            event_type == 'course' => {
-                'children': *[_type =='event' && references(^._id)],
-                'instructors': *[_type == 'event' && references(^._id)]{instructors[]->}.instructors[]
-            },
-            event_type == 'internship' => {
-                'children': *[_type =='event' && references(^._id)],
-                'instructors': *[_type == 'event' && references(^._id)] {
-                    'children': *[_type == 'event' && references(^._id)] { instructors[]-> }
-                }.children[].instructors[]
-            }
-        }
-    `)
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        setResults(data?.map(event => {
-            if (['course', 'internship'].includes(event?.event_type)) {
-                return {
-                    ...event,
-                    instructors: [...new Map(event.instructors.filter(instructor => instructor).map(item => 
-                        [item['_id'], item])).values()]
-                }
-            } else return event
-        }))
-    }, [data])
+        setIsLoading(true)
+        const timer = setTimeout(() => {
+            let filtered = [...coursesData]
+
+            if (query?.search) {
+                const search = query.search.toLowerCase()
+                filtered = filtered.filter(course => 
+                    course.title.toLowerCase().includes(search) ||
+                    course.description.toLowerCase().includes(search)
+                )
+            }
+
+            if (query?.tag?.value && query.tag.value !== '*') {
+                const tag = query.tag.value.toLowerCase()
+                filtered = filtered.filter(course => 
+                    (course.tags && course.tags.some(t => t.toLowerCase() === tag)) ||
+                    (course.category?.title && course.category.title.toLowerCase() === tag)
+                )
+            }
+
+            setResults(filtered)
+            setIsLoading(false)
+        }, 500)
+        return () => clearTimeout(timer)
+    }, [query.search, query.tag?.value])
 
     return { results, isLoading }
 }

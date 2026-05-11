@@ -37,7 +37,7 @@ const EventPage = () => {
 
   // Rendering the main content of the Event Page
   return (
-    <Flex direction="column" w="100vw" mb={{ base: "0", xl: "3em" }}>
+    <Flex direction="column" w="100%" mb={{ base: "0", xl: "3em" }}>
       {/* Rendering the Header component with event data */}
       <Header event={event} loading={isLoading} />
       

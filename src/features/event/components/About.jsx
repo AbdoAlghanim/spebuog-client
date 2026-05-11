@@ -32,17 +32,17 @@ const About = ({
                     {description && 
                     <Flex flexDir="column" gap="2em">
                         <Heading fontSize="24px" fontWeight="medium">About this course</Heading>
-                        <Text maxW="800px">{description}</Text>
+                        <Text maxW="500px">{description}</Text>
                     </Flex>}
                     {target &&
-                    <Flex flexDir="column" align="start" w="fit-content" gap="2em">
+                    <Flex flexDir="column" align="start" w="fit-content" gap="2em" maxW="500px">
                         <Heading fontSize="24px" fontWeight="medium">Who this course is for</Heading>
                         <Text pl="1.25em">
                             <PortableText value={target} style={{color: "red"}}/>
                         </Text>
                     </Flex>}
                     {agenda && 
-                    <Flex flexDir="column" gap="2em">
+                    <Flex flexDir="column" gap="2em" maxW="500px">
                         <Heading fontSize="24px" fontWeight="medium">What you'll learn</Heading>
                         <Text pl="1.25em">
                             <PortableText value={agenda} />

@@ -17,7 +17,7 @@ import {
 const Home = () => {
   return (
     // Using the Flex component from Chakra UI to create a column layout with full viewport width
-    <Flex direction="column" w="100vw">
+    <Flex direction="column" w="100%">
       <Hero />
       <Layout> 
         <Features />

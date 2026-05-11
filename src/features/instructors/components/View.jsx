@@ -82,8 +82,9 @@ const View = ({ gridView, loading, filteredSpeakers, responsiveGridView }) => {
                       // width="280px"
                       borderRadius="15px"
                       justify="space-between"
-                      w="354px"
+                      w="100%"
                       h="100%"
+                      m="0.5em"
                       as={motion.div}
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}

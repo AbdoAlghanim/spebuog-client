@@ -34,7 +34,7 @@ const Navbar = ({ event, loading }) => {
                 ref={navbarRef}
                 // position={{ base: "sticky", lg: "sticky" }}
                 height="60px"
-                w="100vw"
+                w="100%"
                 bg="#fffffff5"
                 fontSize="16px"
                 justify="center"

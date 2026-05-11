@@ -30,42 +30,39 @@ const CoursesPreview = () => {
                 flexDir="column" 
                 gap="1.5em" 
                 mt="1.5em"
+                w="100%"
             >
                 <Text 
                     fontSize="20px" 
                     fontWeight="bold"
                     lineHeight="24px"
-                    mx="2em"
+                    px={{ base: "1em", lg: "0" }}
                 >{category?.title}</Text>
-                <Flex flexDir="row" gap="3em" overflow="auto">
+                <Flex flexDir="row" gap="3em">
                     <Flex w="100%" align="center">
                         <Swiper
                             speed={300}
                             slidesPerView={responsiveSlides}
                             slidesPerGroup={1}
-                            slidesPerGroupAuto={true}
                             centeredSlides={centeredSlides}
                             initialSlide={initialSlide}
+                            spaceBetween={20}
+                            style={{ width: '100%', padding: '10px 0' }}
                         >
                         {isLoading ? nullSlides : category.children?.map((event, idx) => (
                             <SwiperSlide 
                                 key={idx} 
                                 style={{ 
                                     display: "flex", 
-                                    justifyContent: responsiveSlides === 1 ? "center": "space-between",
-                                    width: '80vw', 
-                                    minWidht: '80vw',
-                                    maxWidth: 'calc(320px + 1em)', 
-                                    marginLeft: idx == 0 ? '2em': '0',
-                                    marginRight: idx == category?.children?.length - 1 ? '2em': '0'
+                                    justifyContent: "center",
+                                    width: responsiveSlides === 'auto' ? '85%' : 'auto',
+                                    maxWidth: '350px',
                                 }}
                             >
-                                 <LinkBox><LinkOverlay href={`/${["course_lecture", "webinar"].includes(event.evnet_type) ? "lecture" : "course"}/${event.slug?.current}`}>
+                                 <LinkBox w="100%"><LinkOverlay href={`/${["course_lecture", "webinar"].includes(event.event_type) ? "lecture" : "course"}/${event.slug?.current}`}>
                                     <Course 
                                         course={event} 
-                                        maxW="320px" 
-                                        minW="(80vw - 1em)" 
-                                        w="calc(80vw - 1em)"
+                                        w="100%"
                                     />
                                 </LinkOverlay></LinkBox>
                             </SwiperSlide>

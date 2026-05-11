@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import useSWR from 'swr'
+import coursesData from '../data/courses.json'
 
 export default ({
     eventID,
@@ -8,38 +8,25 @@ export default ({
     type
 }) => {
     const [related, setRelated] = useState(null)
-    
-    const { data, isLoading } = useSWR(`
-        *[_type == 'event' && _id != '${eventID}'] | score(
-            boost(tags match '${tags?.at(0)}', 4),
-            title match '${tags?.at(0)}',
-            category._ref match '${categoryID}',
-            event_type == '${type}'
-        )[0..4]{
-            ...,
-            parent->,
-            event_type in ['course_lecture', 'webinar'] => {
-                instructors[]->,
-            },
-            event_type == 'course' => {
-                'children': *[_type == 'event' && references(^._id)]{..., instructors[]-> },
-                'instructors': *[_type == 'event' && references(^._id)].instructors[]->
-            },
-            event_type == 'internship' => {
-                'children': *[_type == 'event' && references(^._id)]{
-                    ..., 
-                    'instructors': *[_type == 'event' && references(^._id)].instructors[]-> 
-                },
-                'instructors': *[_type == 'event' && references(^._id)] {
-                    'children': *[_type == 'event' && references(^._id)]{ instructors[]-> }
-                }.children[].instructors[]
-            }
-        }
-    `)
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        setRelated(data?.length ? data : [])
-    }, [data])
+        setIsLoading(true)
+        const timer = setTimeout(() => {
+            let filtered = coursesData.filter(c => c._id !== eventID)
+            
+            // Simple logic for related events: same category or matching tags
+            filtered = filtered.filter(c => 
+                c.category === categoryID || 
+                (c.tags && tags && tags.some(tag => c.tags.includes(tag))) ||
+                c.event_type === type
+            )
+
+            setRelated(filtered.slice(0, 5))
+            setIsLoading(false)
+        }, 500)
+        return () => clearTimeout(timer)
+    }, [eventID, tags, categoryID, type])
 
     return { related, isLoading }
 }

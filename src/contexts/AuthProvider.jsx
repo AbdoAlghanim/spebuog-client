@@ -33,7 +33,26 @@ const AuthProvider = (props) => {
         useCdn: true,
     })
 
-    const urlFor = (source) => builder.image(source)
+    const urlFor = (source) => {
+        const _url = (typeof source === 'string') ? source : (source?.asset?.url || '');
+        
+        const builderMock = {
+            width: () => builderMock,
+            height: () => builderMock,
+            url: () => _url,
+            toString: () => _url,
+        };
+
+        if (typeof source === 'string' || source?.asset?.url) {
+            return builderMock;
+        }
+
+        try {
+            return builder.image(source)
+        } catch (e) {
+            return builderMock;
+        }
+    }
 
     const filterEventsByQuery = (events, q) => {
         let query = q.toLowerCase()

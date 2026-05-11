@@ -66,13 +66,15 @@ const SpeakerProfile = () => {
   // JSX code for rendering the speaker profile page
   return (
     // Main container using Flex with column direction and center alignment
-    <Flex flexDir="column" align="center" gap="1em" mb="5em" w="100vw">
+    <Flex flexDir="column" align="center" gap="1em" mb="5em" w="100%">
       {/* Section for displaying speaker details */}
       <Flex
         bg="#0D4C94"
         pt={{ base: "3em", lg: "7em" }}
         pb={{ base: "3em", lg: 0 }}
-        width="100%"
+        px={{ base: "1.5em", md: "4em", lg: "8em" }}
+        w="100%"
+        maxW="100%"
         justify="center"
         align="end"
         mb="60px"
@@ -80,13 +82,13 @@ const SpeakerProfile = () => {
         {/* Inner container with responsive width */}
         <Flex
           w={{
-            base: "90%",
+            base: "100%",
             md: "768px",
             lg: "1024px",
             xl: "1440px",
             "2xl": "1500px",
           }}
-          justify="space-between"
+          justify="right"
           flexDir={{ base: "column", lg: "row" }}
           align={{ base: "center", lg: "unset" }}
         >
@@ -106,7 +108,7 @@ const SpeakerProfile = () => {
               as={Avatar}
             />
             {/* Speaker's name, position, and organization */}
-            <Flex flexDir="column" color="white" gap="1em" mt="15px">
+            <Flex flexDir="column" color="white" gap="1em" mt="15px" maxW="500px">
               <Heading fontSize={{ base: "24px", lg: "32px" }}>
                 {speaker?.name}
               </Heading>
@@ -152,7 +154,7 @@ const SpeakerProfile = () => {
       >
         {/* Checking if the speaker has a description and displaying it */}
         {speaker?.description && (
-          <Flex flexDir="column" gap="1em" maxW="800px">
+          <Flex flexDir="column" gap="1em" maxW="500px">
             {/* Heading for the experience section */}
             <Heading fontSize="24px" fontWeight="medium">
               Experience

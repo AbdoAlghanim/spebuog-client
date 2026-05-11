@@ -1,0 +1,42 @@
+[
+  {
+    "_id": "instructor-1",
+    "name": "Dr. John Doe",
+    "position": "Senior Petroleum Engineer",
+    "organization": "Aramco",
+    "slug": { "current": "dr-john-doe" },
+    "image": { "asset": { "url": "https://via.placeholder.com/150" } }
+  },
+  {
+    "_id": "instructor-2",
+    "name": "Jane Smith",
+    "position": "Drilling Consultant",
+    "organization": "SLB",
+    "slug": { "current": "jane-smith" },
+    "image": { "asset": { "url": "https://via.placeholder.com/150" } }
+  },
+  {
+    "_id": "instructor-3",
+    "name": "Ahmed Hassan",
+    "position": "Reservoir Engineer",
+    "organization": "BOC",
+    "slug": { "current": "ahmed-hassan" },
+    "image": { "asset": { "url": "https://via.placeholder.com/150" } }
+  },
+  {
+    "_id": "instructor-4",
+    "name": "Mary Johnson",
+    "position": "Production Manager",
+    "organization": "BP",
+    "slug": { "current": "mary-johnson" },
+    "image": { "asset": { "url": "https://via.placeholder.com/150" } }
+  },
+  {
+    "_id": "instructor-5",
+    "name": "Ali Al-Farsi",
+    "position": "Geology Expert",
+    "organization": "PDO",
+    "slug": { "current": "ali-al-farsi" },
+    "image": { "asset": { "url": "https://via.placeholder.com/150" } }
+  }
+]

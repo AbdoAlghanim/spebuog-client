@@ -32,7 +32,7 @@ const Header = ({ event, loading }) => {
                 <Flex
                     flexDir="column"
                     gap="2em"
-                    maxW="850px"
+                    maxW="500px"
                 >
                     <SkeletonText w={{ base: "300px", lg: "500px", xl: "600px"}} noOfLines={1} skeletonHeight="0.75em" />
                     <Flex align="center" gap="1em">
@@ -98,7 +98,7 @@ const Header = ({ event, loading }) => {
                 <Flex
                     flexDir="column"
                     gap="2em"
-                    maxW="850px"
+                    maxW="500px"
                 >
                     {event?.category?.title && <Text> Browse {'>'} {event?.category?.title}</Text>}
                     {event?.parent && <Text>This {event?.event_type === 'course_lecture' ? 'lecture' : event?.event_type} is part of the {event?.parent.title}</Text>}

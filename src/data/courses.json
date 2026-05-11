@@ -1,0 +1,116 @@
+[
+  {
+    "_id": "course-1",
+    "event_type": "course",
+    "title": "Introduction to Reservoir Engineering",
+    "description": "Learn the basics of reservoir engineering, including fluid properties and rock characteristics.",
+    "slug": { "current": "intro-to-reservoir-engineering" },
+    "date": "2023-10-01",
+    "instructors": [
+      {
+        "_id": "instructor-3",
+        "name": "Ahmed Hassan",
+        "image": { "asset": { "url": "https://via.placeholder.com/150" } }
+      }
+    ],
+    "tags": ["reservoir", "basics"],
+    "category": { "title": "Reservoir", "_ref": "cat-reservoir" },
+    "video_length": 5,
+    "language": "English",
+    "target": [{ "_type": "block", "children": [{ "_type": "span", "text": "Petroleum Engineering Students and beginners." }] }],
+    "agenda": [{ "_type": "block", "children": [{ "_type": "span", "text": "1. Fluid Properties\n2. Rock Properties\n3. Drive Mechanisms" }] }],
+    "children": [
+        { "title": "Lecture 1: Fluid Properties", "slug": { "current": "fluid-properties" }, "event_type": "course_lecture" },
+        { "title": "Lecture 2: Rock Properties", "slug": { "current": "rock-properties" }, "event_type": "course_lecture" }
+    ]
+  },
+  {
+    "_id": "course-2",
+    "event_type": "course",
+    "title": "Advanced Drilling Techniques",
+    "description": "Explore modern drilling technologies and practices used in the oil and gas industry.",
+    "slug": { "current": "advanced-drilling-techniques" },
+    "date": "2023-11-15",
+    "instructors": [
+      {
+        "_id": "instructor-2",
+        "name": "Jane Smith",
+        "image": { "asset": { "url": "https://via.placeholder.com/150" } }
+      }
+    ],
+    "tags": ["drilling", "advanced"],
+    "category": { "title": "Drilling", "_ref": "cat-drilling" },
+    "video_length": 8,
+    "language": "English",
+    "target": [{ "_type": "block", "children": [{ "_type": "span", "text": "Field Engineers and Drilling Technicians." }] }],
+    "agenda": [{ "_type": "block", "children": [{ "_type": "span", "text": "1. Directional Drilling\n2. MPD\n3. Automation" }] }],
+    "children": []
+  },
+  {
+    "_id": "course-3",
+    "event_type": "internship",
+    "title": "Summer Internship 2024",
+    "description": "A hands-on internship program for petroleum engineering students.",
+    "slug": { "current": "summer-internship-2024" },
+    "date": "2024-06-01",
+    "instructors": [
+      {
+        "_id": "instructor-1",
+        "name": "Dr. John Doe",
+        "image": { "asset": { "url": "https://via.placeholder.com/150" } }
+      }
+    ],
+    "tags": ["internship", "career"],
+    "category": { "title": "Others", "_ref": "cat-others" },
+    "video_length": 12,
+    "language": "Arabic",
+    "target": [{ "_type": "block", "children": [{ "_type": "span", "text": "Students seeking practical experience." }] }],
+    "children": []
+  },
+  {
+    "_id": "course-4",
+    "event_type": "webinar",
+    "title": "Future of Energy",
+    "description": "A deep dive into renewable energy and the transition from fossil fuels.",
+    "slug": { "current": "future-of-energy" },
+    "date": "2024-01-20",
+    "instructors": [
+      {
+        "_id": "instructor-4",
+        "name": "Mary Johnson",
+        "image": { "asset": { "url": "https://via.placeholder.com/150" } }
+      }
+    ],
+    "tags": ["energy", "transition"],
+    "category": { "title": "Others", "_ref": "cat-others" },
+    "video_length": 2,
+    "language": "English",
+    "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "target": [{ "_type": "block", "children": [{ "_type": "span", "text": "Anyone interested in the energy transition." }] }]
+  },
+  {
+    "_id": "course-5",
+    "event_type": "course",
+    "title": "Production Optimization",
+    "description": "Techniques for maximizing production from existing wells.",
+    "slug": { "current": "production-optimization" },
+    "date": "2024-03-10",
+    "instructors": [
+      {
+        "_id": "instructor-4",
+        "name": "Mary Johnson",
+        "image": { "asset": { "url": "https://via.placeholder.com/150" } }
+      },
+      {
+        "_id": "instructor-5",
+        "name": "Ali Al-Farsi",
+        "image": { "asset": { "url": "https://via.placeholder.com/150" } }
+      }
+    ],
+    "tags": ["production", "optimization"],
+    "category": { "title": "Production", "_ref": "cat-production" },
+    "video_length": 10,
+    "language": "English",
+    "target": [{ "_type": "block", "children": [{ "_type": "span", "text": "Production Engineers." }] }]
+  }
+]
