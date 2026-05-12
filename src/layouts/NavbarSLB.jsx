@@ -82,9 +82,6 @@ const NavbarSLB = () => {
         </li>
         */}
         <li className="primary desktop-only">
-          <a href="/courses">{language.NAVBAR.COURSES}</a>
-        </li>
-        <li className="primary desktop-only">
           <a href="/instructors">{language.NAVBAR.INSTRUCTORS}</a>
         </li>
         <li className="primary desktop-only">

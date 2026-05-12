@@ -21,7 +21,6 @@ const Footer = () => {
         <h5>{language.FOOTER.FASTLINKS}</h5>
         {/* Displaying links for different sections of the website */}
         <Link to={"/"}>{language.FOOTER.HOME}</Link>
-        <Link to={"/courses"}>{language.FOOTER.COURSES}</Link>
         <Link to={"/instructors"}>{language.FOOTER.INSTRUCTORS}</Link>
         <Link to={"/membership"}>{language.FOOTER.MEMBERSHIP}</Link>
         <Link to={"/about"}>{language.FOOTER.ABOUT}</Link>
